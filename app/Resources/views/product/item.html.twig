@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+
+    <h1>{{ block('title')}} (#{{ product.id }})</h1>
+
+    <div>
+        <p>Cena: {{ product.price|number_format(2) }} PLN</p>
+        <p>{{ product.description }}</p>
+        <a class="btn btn-primary btn-sm" href="{{ path('product_list') }}">< wróć</a>
+    </div>
+
+{% endblock %}
