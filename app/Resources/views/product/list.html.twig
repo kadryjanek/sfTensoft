@@ -4,12 +4,13 @@
 
 {% block body %}
 
-     <h1>{{ block('title') }}</h1>
+    <h1>{{ block('title') }} ({{ products|length }})</h1>
     
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Kategoria</th>
                 <th>Nazwa produktu</th>
                 <th>Cena</th>
                 <th> </th>
@@ -19,10 +20,11 @@
             {% for product in products %}
                 <tr>
                     <td>{{ product.id }}</td>
+                    <td>{{ product.category }}</td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.price|number_format(2) }}</td>
                     <td>
-                        <a class="btn btn-default btn-sm" href="{{ path('product_show', {id: product.id}) }}">Szczegóły</a>
+                        <a class="btn btn-default btn-sm" href="{{ path('product_show', {id: product.id, name: product.name}) }}">Szczegóły</a>
                         {# <a class="btn btn-primary btn-sm" href="{{ path('product_add_to_cart', {'id': product.id}) }}" > Dodaj do koszyka</a> #}
                     </td>
                 </tr>
