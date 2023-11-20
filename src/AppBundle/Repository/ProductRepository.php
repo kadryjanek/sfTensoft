@@ -16,6 +16,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('p')
             ->select(['p', 'c'])
             ->innerJoin('p.category', 'c')
+            ->addOrderBy('p.id', 'DESC')
             ->getQuery()
             ->getResult();
     }

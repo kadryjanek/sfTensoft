@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Product
  *
@@ -25,6 +27,8 @@ class Product
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * 
+     * @Assert\NotBlank(message="Musisz wprowadzić nazwę!")
      */
     private $name;
 
@@ -39,6 +43,8 @@ class Product
      * @var float
      *
      * @ORM\Column(name="price", type="float")
+     * 
+     * @Assert\NotBlank
      */
     private $price;
 
@@ -52,6 +58,8 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id")
+     * 
+     * @Assert\NotBlank
      */
     private $category;
 

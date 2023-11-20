@@ -1,0 +1,27 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Dodaj nowy produkt{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>{{ block('title') }} </h1>
+    
+    
+    <div class="for-row">
+    
+        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        
+        {{ form_widget(form) }}
+        
+        {#
+        <input type="submit" value="Dodaj produkt" />
+        #}
+        
+        {{ form_end(form) }}
+        
+    </div>
+    
+</div>
+
+{% endblock %}

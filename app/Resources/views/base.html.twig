@@ -15,8 +15,8 @@
             
             <a href="{{ path('homepage') }}" >Strona główna</a>
             
-            {% for type in ['success', 'error'] %}
-                {% for flashMessage in app.flashes('notice') %}
+            {% for type in ['notice', 'danger'] %}
+                {% for flashMessage in app.flashes(type) %}
 
                     <div class="alert alert-{{ type }}" role="alert">
                         {{ flashMessage }}
